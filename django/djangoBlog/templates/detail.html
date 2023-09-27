@@ -1,0 +1,9 @@
+ {% extends "base.html" %}
+ {% block content%}
+   <a hraf="" class="btn btn_danger">Delete</a>
+   <a hraf="{% url "update" todo.id %} "class="btn btn_info"> update </a>
+    <h3>{{ todo.title}}</h3>
+    <small>{{ todo.created}}</small>
+    <p>{{todo.body}}</p>
+
+ {%endblock%}
