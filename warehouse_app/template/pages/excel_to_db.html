@@ -1,0 +1,46 @@
+
+{% extends '../base.html' %}
+{% block content %}
+<div class="content-page">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+        <div class="col-md-6 col-xs-12 mx-5">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Import Excel Data into Database</h2>           
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="col-md-8 col-sm-12 col-xs-12 form-group">      
+              </div>
+                    <input type="file" name="myfile" class="form-control">
+                             <button type="submit" class="btn btn-success" >Upload data using Pandas</button> 
+                             <button type="submit" class="btn btn-success" >Upload data using Import_Export_Lib</button>   
+                            </div>
+                        </div>
+        </div>
+
+  </form>   
+</div>
+{% endblock %}
+<!--
+obj = Inventory.objects.create(part_number=dbframe.part_number, name=dbframe.name, QTY=dbframe.QTY,
+length=dbframe.length, width=dbframe.width, depth=dbframe.depth, weight=dbframe.weight,
+shape=dbframe.shape, coordinate=dbframe.coordinate,) 
+
+
+shapes = [("مستطیل","مستطیل"),("استوانه","استوانه"), ("مربع","مربع"), ("دایره","دایره")]
+
+class Inventory(models.Model):       
+    part_number = models.IntegerField()
+    name = models.CharField(max_length=150,null=True)
+    QTY = models.IntegerField(null=True, blank=True)    
+    length = models.IntegerField(null=True,blank=True)
+    width = models.IntegerField(null=True,blank=True)
+    depth = models.IntegerField(null=True,blank=True)
+    weight = models.IntegerField(null=True,blank=True)
+    shape = models.CharField(choices=shapes,)
+    brand = models.CharField(max_length=50,default='',null=True) 
+    coordinate = models.CharField(max_length=50,default='',null=False) 
+    -->
