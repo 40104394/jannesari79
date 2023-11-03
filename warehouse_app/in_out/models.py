@@ -2,9 +2,12 @@ from django.db import models
 from parts.models import parts
 import datetime
 d = datetime.datetime.now()
-parts_type = [("1","مته"),("2","انگشتی"),("3","مرغک"),("4","برقو")]
+from django.contrib.auth.models import UserManager
+from django.contrib.auth.models import AbstractBaseUser, UserManager
+parts_type = {("1","مته"),("2","انگشتی"),("3","مرغک"),("4","برقو")}
 
-class part_form(models.Model):  
+class part_form(AbstractBaseUser): 
+    objects =  UserManager()
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     manager = models.CharField(max_length=50)
@@ -13,4 +16,10 @@ class part_form(models.Model):
     partnumber = models.ForeignKey(parts, on_delete=models.DO_NOTHING)
     qty = models.IntegerField()
 
-# Create your models here.
+def __str__(self):
+     return self.title
+
+
+
+
+

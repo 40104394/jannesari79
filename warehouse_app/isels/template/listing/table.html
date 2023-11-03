@@ -1,0 +1,79 @@
+{% extends '../base.html' %}
+{% block content %}
+
+    <!-- loader Start -->
+   <div id="loading">
+          <div id="loading-center">
+          </div>
+   </div>
+      <div class="content-page">
+      <div class="container-fluid"> 
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">لیست کالاها</h4>
+                     </div>
+                  <div class="header-action">
+                           <i data-toggle="collapse" data-target="#datatable-2" aria-expanded="false">
+                              <svg width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                              </svg>
+                           </i>
+                  </div>
+                  </div>
+                  <div class="card-body">
+                     <div class="collapse" id="datatable-2">
+
+                     </div>
+                     <div class="table-responsive">
+                        <table id="datatable" class="table data-table table-striped table-bordered" >
+                           <thead>
+                              <tr>
+
+                                 <th>شماره قطعه</th>
+                                 <th>نام</th>
+                                 <th>تعداد</th>
+                                 <th>طول</th>
+                                 <th>عرض</th>
+                                 <th>عمق</th>
+                                 <th>وزن</th>
+                                 <th>شکل</th>
+                                 <th>برند</th>
+                                 <th>موقعیت</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {% if listing %}
+                                 {% for l in listing %}
+                                    <tr>
+                                       <td class="text-center">{{l.part_number}}</td>
+                                       <td class="text-center">{{l.name}}</td>
+                                       <td class="text-center">{{l.QTY}}</td>
+                                       <td class="text-center">{{l.length}}</td>
+                                       <td class="text-center">{{l.width}}</td>
+                                       <td class="text-center">{{l.depth}}</td>
+                                       <td class="text-center">{{l.weight}}</td>
+                                       <td class="text-center">{{l.shape}}</td>
+                                       <td class="text-center">{{l.brand}}</td>
+                                       <td class="text-center">{{l.coordinate}}</td>
+                                    </tr>
+                                 {% endfor %}
+                              {% else %}
+                              <div class="col-md-12">
+                                 <p> هیچ موردی برای نمایش وجود ندارد </p>
+                              </div>
+                           {% endif %}
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+    </div>
+    <!-- Wrapper End-->
+{% endblock %}
